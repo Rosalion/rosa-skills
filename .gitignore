@@ -1,0 +1,47 @@
+# macOS
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+# IDE / Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Backup files
+*.backup
+*-backup-*
+*.old-*
+
+# Archive files (skill 内容不需要打包后再追)
+*.zip
+*.tar.gz
+*.tgz
+
+# Node / build artifacts (若未来有工具脚本)
+node_modules/
+dist/
+build/
+*.log
+
+# Python (若未来有辅助脚本)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# OS specific
+$RECYCLE.BIN/
