@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-05-20
+
+### Removed
+
+- 删除 skill 目录下的 `README.md`（按 Anthropic 官方规范，SKILL.md 是唯一入口；skill 内不放独立 README）
+  - `product-management/prd-writer/README.md`
+  - `product-management/fs-writer/README.md`
+
+### Changed
+
+- 根 `README.md` 增强：补充每个 skill 的"适用场景 / 触发词 / 核心机制 / 输出"详情，弥补 skill README 删除后访客可能丢失的信息
+- 两个 SKILL.md 的文件清单同步更新（去掉 README 行）
+
 ## [0.3.0] - 2026-05-20
 
 ### Changed

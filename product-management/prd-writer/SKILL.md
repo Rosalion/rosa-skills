@@ -167,7 +167,6 @@ PRD 写完后，下游 fs-writer 的输入是：
 ```
 prd-writer/
 ├── SKILL.md              ← 本文件
-├── README.md             ← 人类安装文档
 ├── assets/
 │   ├── prd-template.md             ← PRD 模板骨架
 │   └── example/

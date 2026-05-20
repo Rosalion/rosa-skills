@@ -148,7 +148,6 @@ PRD 描述模块的业务流、需求与实体关系，识别出**功能点列�
 ```
 fs-writer/
 ├── SKILL.md              ← 本文件
-├── README.md             ← 人类安装文档
 ├── assets/
 │   ├── fs-template.md              ← FS 模板骨架（内置 4 种复杂逻辑工具的骨架示例）
 │   └── example/
