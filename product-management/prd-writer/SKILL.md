@@ -152,17 +152,17 @@ PRD（一份 = 一个模块）
 
 ```
 Agent({
-  subagent_type: "business-analyst-reviewer",
+  subagent_type: "business-analyst",
   description: "BA review PRD",
   prompt: "Review the PRD at <绝对路径>. 按 SKILL.md 的 5 个维度输出反馈报告..."
 })
 Agent({
-  subagent_type: "architect-reviewer",
+  subagent_type: "architect",
   description: "Architect review PRD",
   prompt: "Review the PRD at <绝对路径>. 按 SKILL.md 的 5 个维度输出反馈报告..."
 })
 Agent({
-  subagent_type: "qa-reviewer",
+  subagent_type: "qa",
   description: "QA review PRD",
   prompt: "Review the PRD at <绝对路径>. 按 SKILL.md 的 5 个维度输出反馈报告..."
 })
