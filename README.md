@@ -12,31 +12,32 @@ rosa-skills/
 ├── .gitignore
 └── product-management/   ← 场景：产品经理工作流
     ├── prd-writer/       ← 起草企业级 PRD
-    │   ├── SKILL.md      ← 入口主文件（精简 ~150 行）
+    │   ├── SKILL.md      ← 入口主文件（精简 ~160 行）
     │   ├── README.md     ← 人类安装文档
-    │   ├── assets/       ← 模板（输出骨架）
+    │   ├── assets/       ← 模板 + 示例
+    │   │   ├── prd-template.md
+    │   │   └── example/  ← 典型产出片段
     │   ├── reference/    ← 按需加载的规则与方法论
     │   ├── context/      ← 术语表 + 业务背景
-    │   ├── example/      ← 典型产出片段示例
     │   └── memory/       ← 长期教训库（每次起草前必读）
     └── fs-writer/        ← 起草功能规格书 (FS)
         ├── SKILL.md
         ├── README.md
         ├── assets/
+        │   ├── fs-template.md
+        │   └── example/
         ├── reference/
         ├── context/
-        ├── example/
         └── memory/
 ```
 
-每个 skill 采用统一的 **6 目录结构**（SKILL.md + README.md + 5 个子目录），便于渐进式加载：
+每个 skill 采用统一的 **5 目录结构**（SKILL.md + README.md + 4 个子目录），便于渐进式加载：
 
 - **SKILL.md**：入口规则 + 工作流概览 + 文件导航
-- **assets/**：输出模板（起草时复制填空）
+- **assets/**：输出模板（起草时复制填空）+ `example/` 子目录（典型产出片段）
 - **reference/**：复杂场景的方法论（按需加载，简单场景不读）
 - **context/**：术语表与业务背景（用户输入不足时按需补常识）
-- **example/**：典型产出形态（不确定输出格式时参考）
-- **memory/**：长期教训库（每次起草前必读，沉淀实战经验）
+- **memory/**：长期教训库（仅放跨版本沉淀的经验、教训、自检规则；版本号修订请进顶层 CHANGELOG）
 
 未来可能新增的场景目录：`dev-tools/`、`marketing/`、`research/` 等。
 
@@ -76,20 +77,23 @@ for dir in product-management/*/; do
 done
 ```
 
-## 一个 skill 长什么样（6 目录标准结构）
+## 一个 skill 长什么样（标准结构）
 
 ```
 <skill-name>/
 ├── SKILL.md              ← Claude Code 主入口，含 frontmatter + 工作流 + 文件导航
 ├── README.md             ← 给人类读的安装与使用说明
-├── assets/               ← 输出模板骨架（起草时复制填空）
+├── assets/               ← 输出模板骨架 + 示例
+│   ├── <skill>-template.md   ← 模板（起草时复制填空）
+│   └── example/              ← 典型产出片段（不确定格式时参考）
 ├── reference/            ← 按需加载的规则与方法论（复杂场景才读）
 ├── context/              ← 术语表 + 业务背景常识（输入不足时按需读）
-├── example/              ← 典型产出片段（不确定格式时参考）
 └── memory/               ← 长期教训库（每次起草前必读，沉淀实战经验）
 ```
 
 **渐进式加载设计**：SKILL.md 只保留入口规则与文件导航；详细方法论、术语、示例都放在子目录，按场景需求才加载，避免一次性把所有信息塞给模型。
+
+**memory/ 的范围界定**：仅放跨版本沉淀的**长期经验、教训、自检规则**。版本号修订日志归仓库根 `CHANGELOG.md`，不混在 memory 里。
 
 ## 设计哲学
 

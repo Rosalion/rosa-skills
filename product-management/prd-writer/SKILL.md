@@ -15,13 +15,13 @@ description: 起草或迭代企业级 PRD（产品需求文档）。按"摘要 �
 
 | 文件 | 何时读 |
 |---|---|
-| `memory/lessons.md` | **每次起草前必读**：常见错误自检 + 高价值机制 + 历史修订 |
+| `memory/lessons.md` | **每次起草前必读**：常见错误自检 + 高价值机制 + 反复疑问 |
 | `reference/clarification-patterns.md` | Step 1 澄清问题时遇到"问什么不知道"或"用户回答太泛"时按需读 |
 | `context/glossary.md` | 遇到术语歧义时按需读 |
 | `context/business-background.md` | 用户输入不足、需要补充企业级背景常识时按需读 |
-| `example/srm-quotation-snippet.md` | 不确定输出格式时参考典型片段 |
-| `example/clarification-batch.md` | Step 1 澄清问题的实际产出形态参考 |
 | `assets/prd-template.md` | 起草时复制此模板填空 |
+| `assets/example/srm-quotation-snippet.md` | 不确定输出格式时参考典型 PRD 片段 |
+| `assets/example/clarification-batch.md` | Step 1 澄清问题的实际产出形态参考 |
 
 ## PRD 与 FS 的协作
 
@@ -145,15 +145,15 @@ prd-writer/
 ├── SKILL.md              ← 本文件
 ├── README.md             ← 人类安装文档
 ├── assets/
-│   └── prd-template.md   ← PRD 模板骨架
+│   ├── prd-template.md             ← PRD 模板骨架
+│   └── example/
+│       ├── srm-quotation-snippet.md    ← 典型 PRD 片段
+│       └── clarification-batch.md      ← 典型澄清问题批次
 ├── reference/
 │   └── clarification-patterns.md   ← 澄清问题高级模式
 ├── context/
 │   ├── glossary.md                 ← 术语表
 │   └── business-background.md      ← 企业级软件背景
-├── example/
-│   ├── srm-quotation-snippet.md    ← 典型 PRD 片段
-│   └── clarification-batch.md      ← 典型澄清问题批次
 └── memory/
     └── lessons.md                  ← 长期教训库（每次起草前必读）
 ```

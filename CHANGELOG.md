@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-05-20
+
+### Changed
+
+- **example/ 移动到 assets/example/**：例子本质是"模板的样例形态"，归 assets 子目录更自然
+- **memory/lessons.md 收窄范围**：删除文件内的"历史修订记录"节；明确 memory 只放跨版本沉淀的**长期经验、教训、自检规则**，版本号修订日志归本 CHANGELOG
+- 顶层 README 与各 skill SKILL.md 同步更新文件导航与目录树
+
 ## [0.2.0] - 2026-05-20
 
 ### Changed
