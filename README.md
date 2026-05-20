@@ -10,23 +10,32 @@ rosa-skills/
 ├── LICENSE               ← MIT
 ├── CHANGELOG.md          ← 仓库级变更日志
 ├── .gitignore
-└── product-management/   ← 场景：产品经理工作流
-    ├── prd-writer/       ← 起草企业级 PRD
-    │   ├── SKILL.md      ← Claude Code 入口主文件
-    │   ├── assets/       ← 模板 + 示例
-    │   │   ├── prd-template.md
-    │   │   └── example/  ← 典型产出片段
-    │   ├── reference/    ← 按需加载的规则与方法论
-    │   ├── context/      ← 术语表 + 业务背景
-    │   └── memory/       ← 长期教训库（每次起草前必读）
-    └── fs-writer/        ← 起草功能规格书 (FS)
-        ├── SKILL.md
-        ├── assets/
-        │   ├── fs-template.md   ← 内置 4 种复杂逻辑工具的骨架示例
-        │   └── example/
-        ├── context/
-        └── memory/
-        # 注：fs-writer 无 reference/ 子目录（复杂逻辑工具已内置在 fs-template.md）
+├── product-management/   ← 场景：产品经理工作流
+│   ├── prd-writer/       ← 起草企业级 PRD
+│   │   ├── SKILL.md      ← Claude Code 入口主文件
+│   │   ├── assets/       ← 模板 + 示例
+│   │   │   ├── prd-template.md
+│   │   │   └── example/  ← 典型产出片段
+│   │   ├── reference/    ← 按需加载的规则与方法论
+│   │   ├── context/      ← 术语表 + 业务背景
+│   │   └── memory/       ← 长期教训库（每次起草前必读）
+│   └── fs-writer/        ← 起草功能规格书 (FS)
+│       ├── SKILL.md
+│       ├── assets/
+│       │   ├── fs-template.md   ← 内置 4 种复杂逻辑工具的骨架示例
+│       │   └── example/
+│       ├── context/
+│       └── memory/
+│       # 注：fs-writer 无 reference/ 子目录（复杂逻辑工具已内置在 fs-template.md）
+└── subagents/            ← Reviewer 团队（被主 skill 调度的 review subagent）
+    ├── business-analyst/ ← 业务分析师视角 review PRD
+    │   ├── SKILL.md
+    │   ├── context/
+    │   └── memory/
+    ├── architect/        ← 架构师视角 review PRD
+    │   └── （同结构）
+    └── qa/               ← QA 视角 review PRD
+        └── （同结构）
 ```
 
 每个 skill 采用 Anthropic 官方推荐的标准结构：**SKILL.md 作为唯一入口，无独立 README**。需要人类阅读的安装、使用说明都在本仓库根 README 里。
@@ -60,6 +69,18 @@ rosa-skills/
 - **触发词**："写 FS"、"draft FS"、"针对 XX 功能点写规格"、"起草 F-NNN"
 - **核心机制**：分段渐进 → 6 节模板 → 字段中英双写 + 业务类型 → 4 种复杂逻辑表达手段（决策表 / 分支流程图 / 异常清单 / 算法说明）
 - **输出**：含 §1 流程说明、§2 功能概述、§3 功能界面（含 ASCII 原型）、§4 关键字段说明、§5 功能逻辑（步骤表）、§6 数据表结构
+
+### subagents
+
+**Reviewer 团队**：被主 skill 调度的 review subagent，**不直接面向用户**，而是由 prd-writer 在 Step 3.5 并行 spawn 来评审 PRD 草稿。用户可在 prd-writer Step 0 选择是否启用本团队。
+
+| Subagent | 视角 | 5 个 review 维度 |
+|---|---|---|
+| **business-analyst-reviewer** | 业务可行性 / 用户价值 | 用户价值清晰度、业务流闭环、范围合理性、FR 覆盖完整性、业务规则完整性 |
+| **architect-reviewer** | 技术可行性 / 演进性 | 技术可行性、与现有系统兼容、数据模型合理性、性能与扩展性、演进性与扩展点 |
+| **qa-reviewer** | 可测性 / 边界完整性 | 验收标准可测性、边界场景覆盖、异常分支完整性、状态机测试覆盖、跨 FR 一致性 |
+
+每个 subagent 输出结构化 review 报告（✅ 通过 / ⚠️ 建议 / ❌ 必改 三档），主 prd-writer 汇总后由用户裁决采纳哪些。
 
 ## 安装某个 skill
 

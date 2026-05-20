@@ -4,6 +4,31 @@
 
 ## [Unreleased]
 
+## [0.4.0-rc1] - 2026-05-20（feat/reviewer-team 分支）
+
+### Added
+
+- **顶层新增 `subagents/` 目录**：与 `product-management/` 并列，存放被主 skill 调度的 reviewer subagent
+- 三个 reviewer subagent（首版仅服务 PRD review，FS review 后续迭代）：
+  - **business-analyst-reviewer**：业务可行性视角，5 维度（用户价值/业务流/范围/FR 覆盖/业务规则）
+  - **architect-reviewer**：技术可行性视角，5 维度（可行性/兼容性/数据模型/性能/演进性）
+  - **qa-reviewer**：可测性视角，5 维度（验收标准/边界/异常分支/状态机测试/跨 FR 一致）
+- 每个 subagent 含完整结构：SKILL.md + context/glossary.md + memory/lessons.md
+
+### Changed
+
+- **prd-writer 工作流增强**：
+  - Step 0 新增 opt-in 选项：起草前询问用户是否启用多 agent 评审环节
+  - 新增 Step 3.5 多 agent 评审：在 PRD §6 完成后，按用户选择**并行** spawn 3 个 reviewer
+  - 汇总三方反馈后由用户裁决采纳哪些 → 主 agent 修订 PRD
+  - 首版不做 reviewer 间互动，避免马拉松式修订
+- 顶层 README 新增 subagents 章节
+
+### Notes
+
+- 本版本在 `feat/reviewer-team` 分支开发，验证有效后合并到 main
+- FS review 不在首版范围，后续根据使用反馈再加
+
 ## [0.3.3] - 2026-05-20
 
 ### Changed
