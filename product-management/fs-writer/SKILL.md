@@ -16,13 +16,11 @@ description: 从 PRD 功能点派生 FS（功能规格书）。按"流程说明 
 | 文件 | 何时读 |
 |---|---|
 | `memory/lessons.md` | **每次起草前必读**：常见错误自检 + 业务规则写作规范 + 高价值机制 |
-| `reference/complex-logic.md` | §5 功能逻辑遇到复杂动作（3+ 分支 / 异常路径 / 循环重试）时按需读 |
 | `context/glossary.md` | 遇到术语歧义（数据类型、触发类型、字段表列定义等）时按需读 |
 | `context/business-background.md` | PRD 不足、需要补充 FS 受众与边界常识时按需读 |
-| `assets/fs-template.md` | 起草时复制此模板填空 |
+| `assets/fs-template.md` | 起草时复制此模板填空；含**决策表 / 分支流程图 / 异常清单 / 算法说明 4 种复杂逻辑表达手段**的骨架示例 |
 | `assets/example/srm-quotation-snippet.md` | 不确定输出格式时参考典型 FS 片段 |
 | `assets/example/credit-check-decision.md` | 复杂逻辑（决策表 + 异常清单）的实际产出形态参考 |
-| `assets/fs-template.md` | 起草时复制此模板填空 |
 
 ## PRD 与 FS 的关系
 
@@ -82,7 +80,16 @@ PRD 描述模块的业务流、需求与实体关系，识别出**功能点列�
 
 **"标准业务规则"列写作规范**：必须是完整的中文句子，写业务因果与约束，不写 SQL/赋值。详见 `memory/lessons.md`。
 
-**复杂动作**（3+ 条件分支、异常路径、循环重试）：追加决策表 / 分支流程图 / 异常清单 / 算法说明。详见 `reference/complex-logic.md`。
+**复杂动作**（3+ 条件分支、异常路径、循环重试）：追加决策表 / 分支流程图 / 异常清单 / 算法说明。**4 种工具的骨架示例已内置在 `assets/fs-template.md`**，按需复制使用。
+
+| 动作复杂度 | 推荐手段 |
+|---|---|
+| 简单线性 CRUD | 仅步骤表 |
+| 1~2 个判断 | 步骤表（判断写在"标准业务规则"列里）|
+| 3+ 条件组合 | 步骤表 + 决策表 |
+| 含分叉与异常路径 | 步骤表 + 分支流程图 |
+| 需完整覆盖异常 | 步骤表 + 异常清单表 |
+| 含循环/重试/算法 | 步骤表 + 算法说明 |
 
 ### 6. 数据表结构
 
@@ -143,12 +150,10 @@ fs-writer/
 ├── SKILL.md              ← 本文件
 ├── README.md             ← 人类安装文档
 ├── assets/
-│   ├── fs-template.md              ← FS 模板骨架
+│   ├── fs-template.md              ← FS 模板骨架（内置 4 种复杂逻辑工具的骨架示例）
 │   └── example/
 │       ├── srm-quotation-snippet.md    ← 典型 FS 片段
 │       └── credit-check-decision.md    ← 复杂逻辑示例（决策表+异常清单）
-├── reference/
-│   └── complex-logic.md  ← 复杂逻辑表达手段
 ├── context/
 │   ├── glossary.md                 ← 术语表（数据类型、触发类型等）
 │   └── business-background.md      ← FS 受众与边界

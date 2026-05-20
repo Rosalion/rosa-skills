@@ -4,6 +4,26 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-05-20
+
+### Changed
+
+- **prd-writer：PRD §5 分解逻辑重构**
+  - "能力组"概念替换为"**子模块**"，对应 §5.1 / §5.2 / ... 章节号
+  - FR 编号改为**多级数字**：FR-1.1 / FR-1.2 / FR-2.1（前缀对应子模块号）
+  - FR 字段从 6 个增至 7 个：新增**场景描述**（自由叙述用户场景与目标）
+  - 明确"FR 即 User Story，但不强制 As-I want-So that 句式"
+  - 默认 FS 拆分约定：一个子模块 = 一份 FS；紧耦合 FR 同处一子模块，自然合并到同一 FS
+- **fs-writer：复杂逻辑组件位置调整**
+  - 删除 `reference/complex-logic.md`（与 fs-template.md 内已有的 4 种工具示例重复）
+  - SKILL.md 文件导航与 §5 章节直接指向 fs-template.md 内置示例
+  - fs-writer 不再含 reference/ 子目录
+
+### Removed
+
+- prd-writer：旧的"能力组（Capability Group）"概念
+- fs-writer：reference/complex-logic.md（内容已合并到 fs-template.md）
+
 ## [0.2.1] - 2026-05-20
 
 ### Changed

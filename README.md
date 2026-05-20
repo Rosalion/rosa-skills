@@ -24,11 +24,11 @@ rosa-skills/
         ├── SKILL.md
         ├── README.md
         ├── assets/
-        │   ├── fs-template.md
+        │   ├── fs-template.md   ← 内置 4 种复杂逻辑工具的骨架示例
         │   └── example/
-        ├── reference/
         ├── context/
         └── memory/
+        # 注：fs-writer 无 reference/ 子目录（复杂逻辑工具已内置在 fs-template.md）
 ```
 
 每个 skill 采用统一的 **5 目录结构**（SKILL.md + README.md + 4 个子目录），便于渐进式加载：
