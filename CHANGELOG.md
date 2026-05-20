@@ -4,6 +4,37 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-05-20
+
+### Changed
+
+- **重组两个 skill 为 6 目录标准结构**，便于渐进式加载：
+  - `SKILL.md`（入口主文件，含文件导航）
+  - `README.md`（人类安装文档）
+  - `assets/`（输出模板）
+  - `reference/`（按需加载的方法论）
+  - `context/`（术语表 + 业务背景）
+  - `example/`（典型产出片段示例）
+  - `memory/`（长期教训库，每次起草前必读）
+- SKILL.md 大幅瘦身：prd-writer 180 → 159 行；fs-writer 330 → 156 行
+- 把"常见错误自检"从 SKILL.md 挪入 `memory/lessons.md`，作为长期教训库
+- 顶层 README 更新结构说明，加入"渐进式加载设计"理念
+
+### Added
+
+- prd-writer 新增：reference/clarification-patterns.md（澄清问题高级模式）
+- prd-writer 新增：context/glossary.md（术语表）
+- prd-writer 新增：context/business-background.md（企业级软件背景）
+- prd-writer 新增：example/srm-quotation-snippet.md（典型 PRD 片段）
+- prd-writer 新增：example/clarification-batch.md（典型澄清问题批次）
+- prd-writer 新增：memory/lessons.md（长期教训库）
+- fs-writer 新增：reference/complex-logic.md（复杂逻辑表达手段）
+- fs-writer 新增：context/glossary.md（术语表）
+- fs-writer 新增：context/business-background.md（FS 受众与边界）
+- fs-writer 新增：example/srm-quotation-snippet.md（典型 FS 片段）
+- fs-writer 新增：example/credit-check-decision.md（复杂逻辑示例）
+- fs-writer 新增：memory/lessons.md（长期教训库）
+
 ## [0.1.0] - 2026-05-20
 
 ### Added
